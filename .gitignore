@@ -29,3 +29,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+package.json
+yarn.lock
+config/database.yml
+config/environments/development.rb

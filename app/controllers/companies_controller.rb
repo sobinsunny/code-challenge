@@ -30,7 +30,15 @@ class CompaniesController < ApplicationController
     else
       render :edit
     end
-  end  
+  end
+
+  def destroy
+    if @company.destroy
+      redirect_to companies_path notice: "Company succesfully removed."
+    else
+      redirect_to companies_path flash: {error: "Requested action canno't be complete!."}
+    end
+  end
 
   private
 
@@ -49,5 +57,4 @@ class CompaniesController < ApplicationController
   def set_company
     @company = Company.find(params[:id])
   end
-  
 end

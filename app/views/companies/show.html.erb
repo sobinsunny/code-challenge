@@ -5,8 +5,11 @@
       <%= link_to "< Companies", companies_path %>
     </div>
     <div class="col text-right">
-      <%= link_to "Edit", edit_company_path %>
+      <%= link_to "Edit", edit_company_path, class: 'btn btn-info float-right'%>
     </div>
+      <div class="col text-right">
+        <%= link_to 'Delete', @company, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger float-right' %>
+      </div>
   </div>
   <div class="bg-success">
     <div class="container p-5 text-white">
