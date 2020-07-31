@@ -1,10 +1,10 @@
 module ApplicationHelper
   def bootstrap_class_for(flash_type)
     {
-      success: "alert-success",
-      error: "alert-danger",
-      alert: "alert-warning",
-      notice: "alert-info",
+      success: 'alert-success',
+      error: 'alert-danger',
+      alert: 'alert-warning',
+      notice: 'alert-info'
     }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
 
@@ -12,7 +12,7 @@ module ApplicationHelper
     if object.errors.any?
       content_tag(:ul) do
         object.errors.full_messages.each do |msg|
-          concat content_tag(:li, msg, style: "color: red")
+          concat content_tag(:li, msg, style: 'color: red')
         end
       end
     end

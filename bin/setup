@@ -35,7 +35,7 @@ FileUtils.chdir APP_ROOT do
   system! 'bundle exec rake db:fixtures:load'
 
   puts "\n== Adding some Action Text rich text fields =="
-system! 'bundle exec rake test_data:rich_texts'
+  system! 'bundle exec rake test_data:rich_texts'
 
   puts "\n== Restarting application server =="
   system! 'bin/rails restart'

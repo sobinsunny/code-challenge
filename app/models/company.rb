@@ -4,9 +4,9 @@ class Company < ApplicationRecord
   has_rich_text :description
 
   validates :email, allow_blank: true, format: {
-                      with: EMAIL_FORMAT,
-                      message: "domain must be getmainstreet.com",
-                    }
+    with: EMAIL_FORMAT,
+    message: 'domain must be getmainstreet.com'
+  }
   validate :valid_zip_code, if: :zip_code
   before_save :set_state_and_city, if: :zip_code
 
@@ -20,6 +20,7 @@ class Company < ApplicationRecord
 
   def valid_zip_code
     return if ZipCodes.identify(zip_code).present?
-    errors.add("zip code", "Invalid Zip code")
+
+    errors.add('zip code', 'Invalid Zip code')
   end
 end

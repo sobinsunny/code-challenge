@@ -1,8 +1,6 @@
 namespace :test_data do
-
-
-  desc "add test rich text blocks"
-  task :rich_texts => :environment do
+  desc 'add test rich text blocks'
+  task rich_texts: :environment do
     add_rich_text_to_companies
   end
 
@@ -23,5 +21,4 @@ namespace :test_data do
                      <p>We focus on providing you with a written detailed estimate for your painting making sure that you know there are no hidden costs. We also like to give you different options that meet your budget needs. Following our first visit, we help you with painting colors and setting up an upcoming date for your project.</p>"
     company.save
   end
-
 end
