@@ -2,7 +2,6 @@ require "test_helper"
 require "application_system_test_case"
 
 class CompaniesControllerTest < ApplicationSystemTestCase
-
   def setup
     @company = companies(:hometown_painting)
   end
@@ -47,7 +46,7 @@ class CompaniesControllerTest < ApplicationSystemTestCase
       fill_in("company_name", with: "New Test Company")
       fill_in("company_zip_code", with: "28173")
       fill_in("company_phone", with: "5553335555")
-      fill_in("company_email", with: "new_test_company@test.com")
+      fill_in("company_email", with: "email@getmainstreet.com")
       click_button "Create Company"
     end
 
@@ -56,17 +55,18 @@ class CompaniesControllerTest < ApplicationSystemTestCase
     last_company = Company.last
     assert_equal "New Test Company", last_company.name
     assert_equal "28173", last_company.zip_code
+    assert_equal "5553335555", last_company.phone
+    assert_equal "email@getmainstreet.com", last_company.email
   end
 
   test "Destroy" do
     visit company_path(@company)
-    assert_difference('Company.count', -1) do
+    assert_difference("Company.count", -1) do
       message = accept_prompt do
-        click_link('Delete')
+        click_link("Delete")
       end
-      assert_equal 'Are you sure?', message
-      assert_text "Company was successfully destroyed."
+      assert_equal "Are you sure?", message
+      assert_text "Company was successfully destroyed"
     end
   end
-
 end
