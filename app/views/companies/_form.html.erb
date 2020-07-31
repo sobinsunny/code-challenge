@@ -1,14 +1,6 @@
 <div class="py-5">
   <%= form_for @company do |f| %>
-
-    <% if @company.errors.any? %>
-      <ul>
-        <% @company.errors.full_messages.each do |msg| %>
-          <li style="color:red"><%= msg %></li>
-        <% end %>
-      </ul>
-    <% end %>
-    
+    <%= error_for(@company) %>
     <div class="row my-lg-3">
       <div class="col-lg-3">
         <label><strong>Name</strong><br><small class="text-muted">The public DBA, or Common name of the organization</small></label>
